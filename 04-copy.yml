@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+    - name: copy data to file
+      copy: content="Welcome to Luke Rajan Mathew Ansible \n" dest="/home/ansible/f1.txt"

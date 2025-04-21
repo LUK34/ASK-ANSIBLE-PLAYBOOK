@@ -1,0 +1,6 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Overwrite abc.txt with contents of f1.txt
+      ansible.builtin.shell: cp -f /home/ansible/f1.txt /home/ansible/abc.txt

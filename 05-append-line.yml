@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: Append a line to the file
+      lineinfile:
+        path: /home/ansible/f1.txt
+        line: 'This line is appended using ansible playbook'
+        create: yes
+        insertafter: EOF
+---
+

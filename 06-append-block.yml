@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Append data to file
+      blockinfile:
+        path: /home/ansible/f1.txt
+        block: This is block code appeneded using
+          Ansible Playbook.
