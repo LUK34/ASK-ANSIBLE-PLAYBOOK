@@ -36,6 +36,8 @@
 - Control node will copy data from one text file to another text file in all managed node.
 
 ## 08-website.yml
+- This code will help you to install static website to manageed nodes belonging to webserver group.
+- This file is executed in control node which setsup up the static website in all managed node in webserver group.
 - Uses the yum module to install the Apache web server (httpd) 
 - Ensures the latest version is installed.
 - If already installed, it upgrades if a newer version is available.
