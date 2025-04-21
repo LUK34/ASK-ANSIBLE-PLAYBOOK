@@ -52,3 +52,10 @@
 - Your index.html is in place
 - The Apache server is started 
 - Your static website is now live on port 80 of your EC2 instance 
+
+## 09-website-notify-handler.yml
+- notify is used inside a task.
+- It tells Ansible to trigger a handler if the task results in a change.
+- Here, notify: restart apache means if the httpd package was changed (e.g., newly installed), Ansible will trigger the handler named "restart apache".
+- handler is a special type of task that runs only when notified.
+- Usually used for services that should be restarted/reloaded only if something changed (like config file updates, package installations).
