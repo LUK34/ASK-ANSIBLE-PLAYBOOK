@@ -59,3 +59,53 @@
 - Here, notify: restart apache means if the httpd package was changed (e.g., newly installed), Ansible will trigger the handler named "restart apache".
 - handler is a special type of task that runs only when notified.
 - Usually used for services that should be restarted/reloaded only if something changed (like config file updates, package installations).
+
+## 10-tags.yml
+- In Ansible, tags are labels you can assign to tasks, roles, or blocks so you can selectively run specific parts of your playbook.
+- Allow you to run only certain tasks instead of the whole playbook.
+- Great for testing or rerunning a subset of tasks (like restarting a service or deploying code).
+- **CMD:**
+- ansible-playbook 10-tags.yml --list-tags
+- ansible-playbook 10-tags.yml --tags "install"
+- ansible-playbook 10-tags.yml --tags "copy"
+- ansible-playbook 10-tags.yml --tags "install, copy"
+- ansible-playbook 10-tags.yml --skip-tags "install"
+- ansible-playbook 10-tags.yml --skip-tags "copy"
+
+## 11-facts.yml
+- In Ansible, facts are pieces of information automatically gathered about the target system(s) 
+- before executing tasks. These facts describe the system’s environment, including:
+- OS version
+- IP address
+- Hostname
+- CPU, memory
+- Network interfaces
+- Disk information
+
+## 12-register.yml
+- In Ansible, register and debug are commonly used features to capture and display output during the execution of a playbook.
+- register is used to store the result/output of a task into a variable. You can later refer to this variable in other tasks.
+- debug is used to print messages or variable values to the console for visibility during playbook execution.
+- This playbook:
+- Runs the date command on your local machine.
+- Stores the result.
+- Prints the current date using a debug message.
+
+## 13-error-handle.yml
+- Error handling in Ansible refers to the techniques and mechanisms used to manage failures during playbook execution, 
+- so your automation can react intelligently to problems.
+- Uses the command: dates (which is incorrect, correct one is date).
+- This command will fail.
+- ignore_errors: yes is used, so Ansible will not stop even if the command fails.
+- Uses the command: whoami.
+- This command will succeed and print the current user.
+- It runs regardless of the previous task's failure, thanks to ignore_errors.
+- ignore_errors: yes: Prevents task failure from halting the playbook.
+- Ansible continues to the next task even after an error if instructed.
+- Useful for graceful handling of non-critical failures.
+
+
+
+
+
+

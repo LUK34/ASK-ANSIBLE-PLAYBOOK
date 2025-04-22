@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  tasks:
+    - name: get date
+      command: date
+      register: date_output
+
+    - name: print date
+      debug:
+        msg: 'Current Date {{ date_output.stdout }}'

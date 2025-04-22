@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  tasks:
+    - name: get date
+      command: dates
+      ignore_errors: yes
+
+    - name: get whoami
+      command: whoami
