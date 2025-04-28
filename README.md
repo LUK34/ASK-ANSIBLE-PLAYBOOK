@@ -104,7 +104,33 @@
 - Ansible continues to the next task even after an error if instructed.
 - Useful for graceful handling of non-critical failures.
 
+## 14-runtimeVariable.yml
+- We can pass variable value during runtime.
+- **CMD:**
+- ansible-playbook 14-runtimeVariable.yml --extra-vars package_name=httpd
+- ansible-playbook 14-runtimeVariable.yml --extra-vars package_name=git
+- ansible-playbook 14-runtimeVariable.yml --extra-vars package_name=maven
 
+
+## 15-playbookVariable.yml
+- In Ansible, a playbook variable is a way to store dynamic values that can be reused throughout your playbook. 
+- These variables help customize automation tasks, making them more flexible and efficient
+- **CMD:**
+- ansible-playbook 15-playbookVariable.yml
+
+## 16-installSwGroupWise.yml
+- This programme will execute task to install webservers group : java, db servers group : git
+- This is not efficent but easy to understand code.
+- For efficency refer 17-vars.yml
+
+
+## 17-vars.yml
+- ungrouped servers : httpd, webservers group : java, db servers group : git
+- To achieve above requirement we need to use group_vars and host_vars concept.
+- We need to supply variable value based on group name and based on host name.
+- group_vars concept is used to specify variable value for group of managed nodes as per inventory file group name.
+- Managed nodes we are configuring host inventory file like below
+- Refer Screenshot: `variables scenario.png`
 
 
 

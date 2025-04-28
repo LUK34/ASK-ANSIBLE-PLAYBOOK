@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  become: true
+  vars:
+    package_name: httpd
+  tasks:
+    - name: install package
+      yum:
+        name: '{{package_name}}'
+        state: latest
+    - name: Print a msg
+      debug:
+        msg: '{{package_name}} installed sucessfully'

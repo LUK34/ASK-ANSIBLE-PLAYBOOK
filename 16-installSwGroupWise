@@ -1,0 +1,25 @@
+---
+- hosts: webservers
+  become: true
+  vars:
+    package_name_1: java
+  tasks:
+    - name: install package java
+      yum:
+        name: '{{package_name_1}}'
+        state: latest
+    - name: Print a msg
+      debug:
+        msg: '{{package_name_1}} installed sucessfully'
+- hosts: dbservers
+  become: true
+  vars:
+    package_name_2: git
+  tasks:
+    - name: install package git
+      yum:
+        name: '{{package_name_2}}'
+        state: latest
+    - name: Print a msg
+      debug:
+        msg: '{{package_name_2}} installed sucessfully'

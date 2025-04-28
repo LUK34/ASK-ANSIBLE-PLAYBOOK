@@ -1,0 +1,14 @@
+---
+- hosts: webservers
+  become: true
+  vars:
+    package_name: httpd # or any package you'd like to install
+  tasks:
+    - name: install package
+      yum:
+        name: '{{ package_name }}'
+        state: latest
+
+    - name: print success message
+      debug:
+        msg: '{{ package_name }} installed successfully.'
