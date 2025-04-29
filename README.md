@@ -132,6 +132,69 @@
 - Managed nodes we are configuring host inventory file like below
 - Refer Screenshot: `variables scenario.png`
 
+## 18-apache-roles-main.yml
+### Step-1: Connect with control node and switch to ansible user
+
+$ sudo su ansible
+$ cd ~
+
+### Step-2 : Create a role using 'ansible-galaxy'
+
+$ mkdir roles
+
+$ cd roles
+
+$ ansible-galaxy init apache
+
+$ sudo yum install tree
+
+$ tree apache
+
+### Step-3 : Create tasks inside "tasks/main.yml" like below
+
+---
+# tasks file for apache
+- name: install httpd
+  yum:
+    name: httpd
+    state: latest
+- name: copy index.html
+  copy:
+    src=index.html
+    dest=/var/www/html/
+  notify:
+    - restart apache
+...
+
+### Step-4 : Copy required files into "files" directory
+
+Note: keep index.html file in files directory
+
+### Step-5 : configure handlers in "handler/main.yml"
+
+---
+# handlers file for apache
+- name: restart apache
+  service:
+    name: httpd
+    state: restarted
+...
+
+Note: With above 5 steps our "apache"  role is ready now we can execute that role like below
+
+### Step-6 : Create main playbook to invoke role using role name
+
+$ cd ~
+$ vi invoke-roles.yml
+
+---
+- hosts: all
+  become: true
+  roles:
+    - apache
+...
+
+Note: Roles will provide abstraction for ansible configuration in a modular and re-usable format.
 
 
 
