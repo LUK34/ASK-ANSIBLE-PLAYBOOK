@@ -133,6 +133,7 @@
 - Refer Screenshot: `variables scenario.png`
 
 ## 18-apache-roles-main.yml
+- Refer `ROLES_APACHE_FOLDER_IMAGES`. This is the output obtained after executing the below steps
 ### Step-1: Connect with control node and switch to ansible user
 
 $ sudo su ansible
